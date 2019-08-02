@@ -115,9 +115,21 @@ function runNumber(roman, decimal, keyvalue,char){
     return roman;
 }
 
+function addsimbol(input){
+    return (input.split('').join('-')).replace(/\s/g,"");
+}
 //console.log(leapYear(2018))
 //console.log(numAnalyzer(509))
 //console.log(inverseStr("hola mundo"))
+//console.log(romansUntilM(79))
 
-console.log(romansUntilM(79))
-
+function getAge(day, month , year){
+    let diff= new Date("11/07/2019").getTime()-new Date(`${day}/${month}/,${year}`).getTime();
+    var oneday = 1000 * 60 * 60 * 24;
+    let days = Math.floor(diff/oneday);
+    let months = Math.floor(days/31);
+    let years = Math.floor(months/12);
+    return `Has ${years} years, ${months-years*12} months and ${days-months*31} days`
+}
+console.log(addsimbol('hola que tal'));
+console.log(getAge(7,7,1998))
