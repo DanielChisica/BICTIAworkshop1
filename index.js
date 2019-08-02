@@ -1,4 +1,4 @@
-var names=[];
+var names=[];//Names put by the user
 
 /**
  * Open index.html to execute the method which sorts names alphabetically
