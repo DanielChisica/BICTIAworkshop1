@@ -59,7 +59,10 @@ function romansUntilM(decimal,roman=''){
                                 return runNumber(roman,decimal,1,1);
                             } else if (decimal==1){
                                 return roman + 'I';
-                            } else {
+                            } else if(decimal==0){
+                                return roman + '';
+                            }
+                            else {
                                 return 'Negative numbers are not supported';
                             }
                         }
@@ -77,7 +80,7 @@ function romansUntilM(decimal,roman=''){
             }
         }
         else {
-            roman=runNumber(roman,decimal,100,"1");
+            roman=runNumber(roman,decimal,100,5);
             return romansUntilM(decimal-(Math.floor(decimal/100)*100),roman);
         }
     } else if(decimal==1000) {
@@ -94,7 +97,7 @@ function runNumber(roman, decimal, keyvalue,char){
     if(n==4){
         roman=roman+romansA[char-1]+romansA[char];
     } else if(n==9){
-        roman=roman+romansA[char+1]+romansA[char+2];
+        roman=roman+romansA[char-1]+romansA[char+1];
     } else {
         if(n<5){
             for (i=0;i<n;i++){
@@ -102,9 +105,11 @@ function runNumber(roman, decimal, keyvalue,char){
             }
         }
         else {
-            for (i=6;i<n;i++){
-                roman=roman+romansA[char-1];
+            let right=''
+            for (i=5;i<n;i++){
+                right=right+romansA[char-1];
             }
+            roman=roman+romansA[char]+right
         }
     }
     return roman;
@@ -113,4 +118,6 @@ function runNumber(roman, decimal, keyvalue,char){
 //console.log(leapYear(2018))
 //console.log(numAnalyzer(509))
 //console.log(inverseStr("hola mundo"))
-console.log(romansUntilM(20))
+
+console.log(romansUntilM(79))
+
