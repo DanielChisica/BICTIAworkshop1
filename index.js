@@ -1,3 +1,79 @@
+var names=[];
+
+/**
+ * Open index.html to execute the method which sorts names alphabetically
+ */
+function sortNames(){
+    let flag=true;
+    if(document.getElementById("names").value!='' ||
+        document.getElementById("names").value!=' '){
+        for(i=0;i<names.length;i++){
+         if(names[i]==document.getElementById("names").value){
+             alert('You cannot use previous names on the list');
+             flag=false;
+         }
+        }
+        if (flag){
+            names.push(document.getElementById("names").value)
+        }
+        document.getElementById("list").innerHTML=names.sort().join();
+        flag=true;
+    } else {
+        location.reload();
+    }
+}
+
+function cashflow(){
+    let cashiers=[]
+    for(i=0;i<10;i++){
+        let days=[]
+        for (j=0;j<180;j++){
+            days.push(Math.floor(Math.random() * (+2000 - +1000) + +1000))
+        }
+        cashiers.push(days)
+    }
+
+    let totalsales=0;
+    let salesPerCashier=[];
+
+    for(i=0;i<cashiers.length;i++){
+        let cashierSales=0;
+        for (j=0;j<cashiers[i].length;j++){
+            totalsales=totalsales+cashiers[i][j]
+            cashierSales=cashierSales+cashiers[i][j]
+        }
+        salesPerCashier.push(cashierSales);
+    }
+
+    let highestSales=[]
+
+    for(i=0;i<10;i++){
+        highestSales[i]=[]
+        highestSales[i].push(Math.max(...cashiers[i]),cashiers[i].indexOf(Math.max(...cashiers[i])))
+    }
+
+    let Salesday100=[]
+    let Salesday50=[]
+    console.log(highestSales)
+    console.log(salesPerCashier)
+
+    for(i=0;i<10;i++){
+        Salesday100.push(cashiers[i][100])
+        Salesday50.push(cashiers[i][50])
+    }
+
+    console.log(Salesday100)
+    console.log(Salesday50)
+
+    return `The total sales in the supermarket are $${totalsales} the cashier with the highest sales was 
+     ${salesPerCashier.indexOf(Math.max(...salesPerCashier))-1} with $${Math.max(...salesPerCashier)}, also the greatest 
+     sale in a day was received by the cashier ${highestSales.map(x => x[0]).indexOf(Math.max(...highestSales.map(x => x[0])))-1} 
+     was received in the day ${highestSales[highestSales.map(x => x[0]).indexOf(Math.max(...highestSales.map(x => x[0])))][1]-1}
+     Finally the cashier with worst sales in the day 100 was ${Salesday100.indexOf(Math.min(...Salesday100))-1}, and in the
+     day 50, the best sale was made by the cashier ${Salesday50.indexOf(Math.max(...Salesday50))-1} and the worst by the
+     cashier ${Salesday50.indexOf(Math.min(...Salesday50))}`
+}
+
 /**
  * Determines if a given year is leap
  * @param year The input year
@@ -118,10 +194,7 @@ function runNumber(roman, decimal, keyvalue,char){
 function addsimbol(input){
     return (input.split('').join('-')).replace(/\s/g,"");
 }
-//console.log(leapYear(2018))
-//console.log(numAnalyzer(509))
-//console.log(inverseStr("hola mundo"))
-//console.log(romansUntilM(79))
+
 
 function getAge(day, month , year){
     let diff= new Date("11/07/2019").getTime()-new Date(`${day}/${month}/,${year}`).getTime();
@@ -131,5 +204,10 @@ function getAge(day, month , year){
     let years = Math.floor(months/12);
     return `Has ${years} years, ${months-years*12} months and ${days-months*31} days`
 }
+console.log(leapYear(2018))
+console.log(numAnalyzer(509))
+console.log(inverseStr("hola mundo"))
+console.log(romansUntilM(79))
 console.log(addsimbol('hola que tal'));
-console.log(getAge(7,7,1998))
+console.log(getAge(7,7,1998));
+console.log(cashflow());
