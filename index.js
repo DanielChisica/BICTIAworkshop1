@@ -239,11 +239,21 @@ function drawPatterns(input){
     console.log(figureC)
 }
 
-//console.log(leapYear(2018))
-//console.log(numAnalyzer(509))
-//console.log(inverseStr("hola mundo"))
-//console.log(romansUntilM(79))
-//console.log(addsimbol('hola que tal'));
-//console.log(getAge(7,7,1998));
-//console.log(cashflow());
+function isPalindrome() {
+    let lettersArray = [...document.getElementById("palindrome").value.toLowerCase()];
+    let flag = true
+    for (let letter of lettersArray) {
+        if (letter !== lettersArray.pop()) {flag=false}
+    }
+    flag ? alert(document.getElementById("palindrome").value + ' is Palindrome') :
+        alert(document.getElementById("palindrome").value + ' is not palindrome')
+}
+
+console.log(leapYear(2018))
+console.log(numAnalyzer(509))
+console.log(inverseStr("hola mundo"))
+console.log(romansUntilM(79))
+console.log(addsimbol('hola que tal'));
+console.log(getAge(7,7,1998));
+console.log(cashflow());
 drawPatterns(5)
