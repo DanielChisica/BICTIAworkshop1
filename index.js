@@ -23,6 +23,10 @@ function sortNames(){
     }
 }
 
+/**
+ * Simulates 10 cashiers in a supermarket
+ * @returns {string} simulation results
+ */
 function cashflow(){
     let cashiers=[]
     for(i=0;i<10;i++){
@@ -96,6 +100,11 @@ function numAnalyzer(number){
         (prime) ? number + ' is odd and prime' : number + ' is odd but not prime';
 }
 
+/**
+ * Inverts a given string
+ * @param phrase
+ * @returns {string} Inverted phrase
+ */
 function inverseStr(phrase){
     let phrase1=phrase.split("");
     for(i=0;i<Math.floor(phrase.length/2);i++) {
@@ -167,6 +176,14 @@ function romansUntilM(decimal,roman=''){
     }
 }
 
+/**
+ * Converts an decimal digit into a roman number
+ * @param roman number used in the iteration of the recursive method
+ * @param decimal digit to be transformed
+ * @param keyvalue number of reference used in iterations
+ * @param char character of reference
+ * @returns {string}
+ */
 function runNumber(roman, decimal, keyvalue,char){
     let romansA=['I','V','X','L','C','D','M'];
     let n = Math.floor(decimal/keyvalue);
@@ -191,11 +208,22 @@ function runNumber(roman, decimal, keyvalue,char){
     return roman;
 }
 
-function addsimbol(input){
+/**
+ * Adds this symbol - between the spaces of the string
+ * @param input string to be modified
+ * @returns {string} modified string
+ */
+function addsymbol(input){
     return (input.split('').join('-')).replace(/\s/g,"");
 }
 
-
+/**
+ * Returns the age of a person, based on his birthday
+ * @param day
+ * @param month
+ * @param year
+ * @returns {string} Age of the person
+ */
 function getAge(day, month , year){
     let diff= new Date("11/07/2019").getTime()-new Date(`${day}/${month}/,${year}`).getTime();
     var oneday = 1000 * 60 * 60 * 24;
@@ -205,6 +233,10 @@ function getAge(day, month , year){
     return `Has ${years} years, ${months-years*12} months and ${days-months*31} days`
 }
 
+/**
+ * Draws three patterns, one of those based in a user input
+ * @param input Pattern to be draw
+ */
 function drawPatterns(input){
     console.log("Figure a")
     let figureA=''
@@ -239,6 +271,9 @@ function drawPatterns(input){
     console.log(figureC)
 }
 
+/**
+ * Open index.html to execute the method which checks if a string is palindrome
+ */
 function isPalindrome() {
     let lettersArray = [...document.getElementById("palindrome").value.toLowerCase()];
     let flag = true
@@ -249,11 +284,26 @@ function isPalindrome() {
         alert(document.getElementById("palindrome").value + ' is not palindrome')
 }
 
+/**
+ * Deletes tbe zeros of a user numbers input
+ * @param numbers array of whose a user introduced
+ * @returns {[]} array of numbers without the zero digits
+ */
+function deleteZero(numbers){
+    let output=[]
+    for(i=0;i<numbers.length;i++){
+        console.log(numbers[i])
+        if(numbers[i]!=0){output.push(numbers[i])}
+    }
+    return output
+}
+
 console.log(leapYear(2018))
 console.log(numAnalyzer(509))
 console.log(inverseStr("hola mundo"))
 console.log(romansUntilM(79))
-console.log(addsimbol('hola que tal'));
+console.log(addsymbol('hola que tal'));
 console.log(getAge(7,7,1998));
 console.log(cashflow());
 drawPatterns(5)
+console.log(deleteZero([1,0,4,0,6,8,0]))
