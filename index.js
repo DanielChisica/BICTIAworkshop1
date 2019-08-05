@@ -306,4 +306,4 @@ console.log(addsymbol('hola que tal'));
 console.log(getAge(7,7,1998));
 console.log(cashflow());
 drawPatterns(5)
-console.log(deleteZer do([1,0,4,0,6,8,0]))
+console.log(deleteZer([1,0,4,0,6,8,0]))
