@@ -204,10 +204,46 @@ function getAge(day, month , year){
     let years = Math.floor(months/12);
     return `Has ${years} years, ${months-years*12} months and ${days-months*31} days`
 }
-console.log(leapYear(2018))
-console.log(numAnalyzer(509))
-console.log(inverseStr("hola mundo"))
-console.log(romansUntilM(79))
-console.log(addsimbol('hola que tal'));
-console.log(getAge(7,7,1998));
-console.log(cashflow());
+
+function drawPatterns(input){
+    console.log("Figure a")
+    let figureA=''
+    for (i=1;i<9;i+=2){
+        for(j=0;j<i;j++){figureA=figureA+'*'}
+        figureA=figureA+'\n'
+    }
+    for (i=9;i>=0;i-=2){
+        for(j=0;j<i;j++){figureA=figureA+'*'}
+        figureA=figureA+'\n'
+    }
+    console.log(figureA)
+    console.log("Figure b")
+    let figureB=''
+    for (i=9;i>=0;i-=2){
+        for(j=0;j<i;j++){figureB=figureB+'*'}
+        figureB=figureB+'\n'
+    }
+    for (i=3;i<10;i+=2){
+        for(j=0;j<i;j++){figureB=figureB+'*'}
+        figureB=figureB+'\n'
+    }
+    console.log(figureB)
+    console.log("Figure c")
+    console.log("User input: "+ input)
+    console.log("Your figure")
+    let figureC=''
+    for(i=input;i>=0;i--){
+        for(j=0;j<i;j++){figureC=figureC+'*'}
+        figureC=figureC+'\n'
+    }
+    console.log(figureC)
+}
+
+//console.log(leapYear(2018))
+//console.log(numAnalyzer(509))
+//console.log(inverseStr("hola mundo"))
+//console.log(romansUntilM(79))
+//console.log(addsimbol('hola que tal'));
+//console.log(getAge(7,7,1998));
+//console.log(cashflow());
+drawPatterns(5)
